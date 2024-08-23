@@ -35,7 +35,7 @@ app.use(express.static(path.join(dirname, "./frontend/build")));
 
 const host = process.env.HOST || "sstcloud.in";
 const proxyOptions = {
-  target: `https://${host}:8086`,
+  target: `https://${host}:8089`,
   changeOrigin: true,
   ws: true,
   pathRewrite: {
@@ -53,7 +53,7 @@ app.use("*", function (req, res) {
   res.sendFile(path.join(dirname, "./frontend/build/index.html"));
 });
 
-const PORT = process.env.PORT || 8086;
+const PORT = process.env.PORT || 8089;
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
